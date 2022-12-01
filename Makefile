@@ -1,31 +1,83 @@
-NAME = minishell
-CC = gcc
-CFLAGS	= -Wall -Werror -Wextra
-LIBNAME = ft
-LIBDIR = ./lib/
-SRCS	= src/main.c src/init.c src/swap_push.c src/rotate.c \
-		src/reverse_rotate.c src/sort_big_stack.c src/sort_small_stack.c \
-		src/utils.c src/find_and_search.c
-OBJS	= $(SRCS:.c=.o)
+# CC		:= cc
+# CFLAGS	:= -I src/ # -Wall -Werror -Wextra  
+# VPATH	:= src/
+# OBJ_DIR	:= obj/
+# PRINTF	:= lib/ft_printf/libftprintf.a
 
-all: libft $(NAME)
+# NAME	:= minishell
 
-libft:
+# SRC		:=	main.c 
+
+# OBJ		:=	$(addprefix $(OBJ_DIR), $(patsubst %.c, %.o, $(SRC)))
+
+
+# all: $(NAME)
+
+# # $(PRINTF):
+# # 	make --directory=./lib/printf
+
+# $(OBJ_DIR): 
+# 	mkdir obj
+
+# $(OBJ_DIR)%.o: %.c 
+# 	$(CC) $(CFLAGS) $< -c -o $@
+
+
+# libft:
+# 	make -C ./lib
+
+# $(NAME): $(OBJ_DIR) $(OBJ) libft
+# 	$(CC) $(OBJ) -o $(NAME) $(PRINTF) $(LDFLAGS)
+
+# # clean:
+# # 	make clean --directory=./lib/ft_printf	
+# # 	rm -f $(OBJ)
+
+# # fclean: clean
+# # 	make fclean --directory=./lib/ft_printf
+# # 	rm -f $(NAME)
+
+# re: fclean all
+
+# .PHONY: all clean fclean re
+
+
+NAME	:= minishell
+CC		:= cc
+CFLAGS	:= -I src/ -I lib/ -Wall -Werror -Wextra
+LDFLAGS	:= -L ~/.brew/opt/readline/lib/
+VPATH	:= src/
+OBJ_DIR	:= obj/
+
+SRC		:=	main.c \
+			big_L.c \
+			foo.c
+
+OBJ		:= $(addprefix $(OBJ_DIR), $(patsubst %.c, %.o, $(SRC)))
+
+LIBFT	:= lib/libft.a
+
+all: $(NAME)
+
+$(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT)
+	$(CC) $(OBJ) -o $(NAME) $(LIBFT) $(LDFLAGS)
+
+$(OBJ_DIR): 
+	mkdir obj
+
+$(OBJ_DIR)%.o: %.c 
+	$(CC) $(CFLAGS) $< -c -o $@
+
+$(LIBFT):
 	make -C ./lib
 
-%.o: %.c
-	gcc $(CFLAGS) -o $@ -c $<
-
-$(NAME): $(OBJS) libft
-	gcc $(OBJS) $(CFLAGS) -L $(LIBDIR) -l $(LIBNAME) -o $(NAME)
-
 clean:
-	rm -f $(OBJS)
 	make -C ./lib clean
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
 	make -C ./lib fclean
+	rm -f $(NAME)
 
 re: fclean all
 
