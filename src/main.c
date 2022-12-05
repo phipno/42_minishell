@@ -6,7 +6,7 @@
 /*   By: pnolte <pnolte@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 17:27:55 by amorvai           #+#    #+#             */
-/*   Updated: 2022/12/05 18:29:54 by pnolte           ###   ########.fr       */
+/*   Updated: 2022/12/05 18:34:45 by pnolte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int argc, char **argv, char **envp)
 	{
 		ft_printf("%s %s ", getenv("USER"), crr_dir);
 		line = readline("🐚: ");
-		tokenizer(line);
+		parser(line);
 		// ft_printf("%s\n", line);
 		free(line);
 	}
