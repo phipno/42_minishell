@@ -1,57 +1,11 @@
-# CC		:= cc
-# CFLAGS	:= -I src/ # -Wall -Werror -Wextra  
-# VPATH	:= src/
-# OBJ_DIR	:= obj/
-# PRINTF	:= lib/ft_printf/libftprintf.a
-
-# NAME	:= minishell
-
-# SRC		:=	main.c 
-
-# OBJ		:=	$(addprefix $(OBJ_DIR), $(patsubst %.c, %.o, $(SRC)))
-
-
-# all: $(NAME)
-
-# # $(PRINTF):
-# # 	make --directory=./lib/printf
-
-# $(OBJ_DIR): 
-# 	mkdir obj
-
-# $(OBJ_DIR)%.o: %.c 
-# 	$(CC) $(CFLAGS) $< -c -o $@
-
-
-# libft:
-# 	make -C ./lib
-
-# $(NAME): $(OBJ_DIR) $(OBJ) libft
-# 	$(CC) $(OBJ) -o $(NAME) $(PRINTF) $(LDFLAGS)
-
-# # clean:
-# # 	make clean --directory=./lib/ft_printf	
-# # 	rm -f $(OBJ)
-
-# # fclean: clean
-# # 	make fclean --directory=./lib/ft_printf
-# # 	rm -f $(NAME)
-
-# re: fclean all
-
-# .PHONY: all clean fclean re
-
-
 NAME	:= minishell
 CC		:= cc
-CFLAGS	:= -I src/ -I lib/ -Wall -Werror -Wextra
+CFLAGS	:= -I src/ -I lib/ #-Wall -Werror -Wextra
 LDFLAGS	:= -lreadline -L ~/.brew/opt/readline/lib/
 VPATH	:= src/
 OBJ_DIR	:= obj/
 
-SRC		:=	main.c \
-			big_L.c \
-			foo.c
+SRC		:=	main.c
 
 OBJ		:= $(addprefix $(OBJ_DIR), $(patsubst %.c, %.o, $(SRC)))
 
