@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amorvai <amorvai@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pnolte <pnolte@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 22:18:15 by amorvai           #+#    #+#             */
-/*   Updated: 2022/11/30 01:53:57 by amorvai          ###   ########.fr       */
+/*   Updated: 2022/12/05 18:33:49 by pnolte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@
 // 	static t_simple_command	*current_s_command;
 // }				t_command;
 
+void parser(char *line);
+void tokenizer(char *line);
 
+char *ft_crr_dir();
 
 #endif
