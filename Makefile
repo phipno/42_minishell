@@ -45,7 +45,7 @@
 NAME	:= minishell
 CC		:= cc
 CFLAGS	:= -I src/ -I lib/ -Wall -Werror -Wextra
-LDFLAGS	:= -L ~/.brew/opt/readline/lib/
+LDFLAGS	:= -lreadline -L ~/.brew/opt/readline/lib/
 VPATH	:= src/
 OBJ_DIR	:= obj/
 
