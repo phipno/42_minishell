@@ -6,7 +6,7 @@
 /*   By: pnolte <pnolte@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 22:18:15 by amorvai           #+#    #+#             */
-/*   Updated: 2022/12/05 18:33:49 by pnolte           ###   ########.fr       */
+/*   Updated: 2022/12/05 19:27:57 by pnolte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <stdbool.h>
 
 // typedef struct s_minishell
 // {
@@ -44,7 +45,7 @@
 // }				t_command;
 
 void parser(char *line);
-void tokenizer(char *line);
+void tokenizer(char *input);
 
 char *ft_crr_dir();
 

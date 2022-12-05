@@ -5,7 +5,9 @@ LDFLAGS	:= -lreadline -L ~/.brew/opt/readline/lib/
 VPATH	:= src/
 OBJ_DIR	:= obj/
 
-SRC		:=	main.c
+SRC		:=	main.c \
+			parser.c\
+			tokenizer.c \
 
 OBJ		:= $(addprefix $(OBJ_DIR), $(patsubst %.c, %.o, $(SRC)))
 
